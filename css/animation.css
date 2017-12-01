@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/*----------  애니메이션  ----------*/
+/* Animation */
 
 @keyframes text-ani {
   0% {
@@ -39,10 +39,7 @@
   animation: flower-ani 2s infinite alternate;
 }
 .visual::before {
-  /* background-image: url("images/ani_flower_01.png"), url("images/ani_flower_02.png");
-  background-repeat: no-repeat, no-repeat;
-  background-position: -10px 105px, 682px 28px; */
-  background: url("images/ani_flower_01.png") no-repeat -10px 105px, url("images/ani_flower_02.png") no-repeat 682px 28px;
+  background: url("images/ani_flower_01.png") no-repeat -10px 105px, url("images/ani_flower_02.png") no-repeat 675px 28px;
 }
 .visual::after {
   background: url("images/ani_flower_03.png") no-repeat 325px 140px, url("images/ani_flower_04.png") no-repeat 825px 125px;
@@ -52,18 +49,10 @@
   width: 500px;
   color: rgba(0, 0, 0, 0);
   font-family: Georgia, 'Times New Roman', Times, serif;
-  /* animation-name: text-ani;
-  animation-duration: 1000ms;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in-out;
-  animation-delay: 2s;
-  animation-play-state: paused; */
   animation: text-ani 500ms forwards ease-in-out;
 }
 
-/*----------  Transition  ----------*/
+/* Transition */
 
 .web {
   width: 940px;

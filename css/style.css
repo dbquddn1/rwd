@@ -28,7 +28,7 @@ html {
   font-size: 10px;
 }
 body {
-  font-family: "NoTo Sans Regular", sans-serif;
+  font-family: "Noto Sans Regular", sans-serif;
   color: #181818;
   background-color: #fff;
 }
@@ -42,23 +42,63 @@ a:hover, a:focus {
 
 /* 레이아웃 공통 */
 
-.clear-fix::after {
+.clearfix::after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* 반응형 컨텐츠 */
+/* 반응형 콘텐츠 */
 
 .responsive {
   max-width: 100%;
   height: auto;
 }
 
+/* 아이콘 폰트 - fontello */
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+.icon-plus:before {
+  content: '\e800';
+  color: hsla(90, 50%, 30%, 1);
+}
+.icon-calendar:before {
+  content: '\e801';
+}
+.icon-star:before {
+  content: '\e802';
+}
+
 /* 모바일 & 데스크탑 */
 
 
-/* 컨텐츠 제목 공통 */
+/* 콘텐츠 제목 공통 */
 
 .content-heading {
   background: url("images/sprite_main.png") no-repeat;
@@ -100,7 +140,7 @@ a:hover, a:focus {
   color: #6aaee6;
 }
 
-/*  추천 서적 */
+/* 추천 서적 */
 
 .recommend-book-cover {
   margin: 15px auto;
@@ -115,11 +155,72 @@ a:hover, a:focus {
 }
 .recommend-book-grade {
   font-size: 2rem;
-  color: #adb375;
+  color: #abd375;
 }
-.recommend-book-surmary {
+.recommend-book-summary {
   text-align: left;
   margin-top: 15px;
+  line-height: 1.5;
+}
+
+/* 새소식 */
+
+.news-container {
+  margin: 15px 0;
+  text-align: center;
+}
+.news-summary {
+  line-height: 1.5;
+  margin: 15px 0;
+}
+.news-date {
+  display: block;
+  text-align: right;
+}
+
+/* 게시판 */
+
+.board {
+  position: relative;
+}
+.board-list {
+  margin-top: 15px;
+}
+.board-list li {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between
+}
+.board-list a {
+  width: calc(100% - 80px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.board-more {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  padding: 8px;
+}
+
+/* 인기 사이트 */
+
+.favorite-site-list {
+  overflow: hidden;
+  margin-left: 15px;
+}
+.favorite-site-list li {
+  counter-increment: number;
+  margin-top: 15px;
+}
+.favorite-site li::before {
+  content: counter(number, decimal);
+  background: #f19333;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0 6px;
+  margin-right: 5px;
 }
 
 /* 트위터 */
@@ -146,6 +247,9 @@ a:hover, a:focus {
   clear: both;
   text-align: right;
 }
+
+/* 푸터 */
+
 .footer-bg {
   background: #988574;
   color: #fff;
@@ -153,7 +257,7 @@ a:hover, a:focus {
 .footer {
   padding: 30px 0;
 }
-@media screen and (max-width:999px) {
+@media screen and (max-width: 999px) {
   body {
     font-size: 1.4rem;
   }
@@ -175,7 +279,7 @@ a:hover, a:focus {
     margin: 0 -20px;
     order: -1;
     text-align: right;
-    padding: 10px 10px;
+    padding: 10px;
   }
   .member li {
     display: inline-block;
@@ -186,9 +290,11 @@ a:hover, a:focus {
   .member a:hover, .member a:focus {
     color: #523325;
   }
+  /* 로고 */
   .logo {
     padding: 10px 0;
   }
+  /* 검색 폼 */
   .search-form {
     padding: 10px 0 20px;
   }
@@ -218,8 +324,8 @@ a:hover, a:focus {
     left: 0;
     background: url("images/btn_search.png") no-repeat 0 0 /100%;
   }
-  /* 모바일 네이게이션 */
-  /* 메인 메뉴 제어를 위한 버튼 */
+  /* 모바일 내비게이션 */
+  /* 모바일 메인 메뉴 제어를 위한 버튼 */
   .menubar-container {
     position: absolute;
     top: 70px;
@@ -231,8 +337,9 @@ a:hover, a:focus {
   .btn-menubar {
     width: 100%;
     height: 100%;
-    text-indent: 30px;
+    text-indent: -120px;
     white-space: nowrap;
+    color: #fff;
     overflow: hidden;
     border: 0;
     background: transparent;
@@ -267,32 +374,32 @@ a:hover, a:focus {
     transform: translate(-100%, -50%);
   }
   .menubar-act .menubar-bottom {
-    top: 50%;
     transform: rotate(-45deg);
+    top: 50%;
     margin-top: -3px;
   }
-  /* 메인 메뉴 */
+  /* 모바일 메인 메뉴 */
   .menu-act {
     transform: translateX(0) !important;
   }
   .main-menu {
     background: rgba(0, 0, 0, 0.85);
     width: 70%;
-    height: 100%;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     color: #fff;
     padding-top: 20px;
-    transform: translate(-100%);
+    transform: translateX(-100%);
     transition: all 0.2s;
   }
-  .main-menu li {
+  .main-menu>li {
     cursor: pointer;
-    margin: 10px 0;
+    margin: 15px 0;
   }
   .main-menu span {
-    font-family: "NoTo Sans Bold";
+    font-family: "Noto Sans Bold";
     font-size: 1.5rem;
   }
   .sub-menu {
@@ -302,21 +409,21 @@ a:hover, a:focus {
   .sub-menu-act {
     display: block !important;
   }
-  /* 메인 컨텐츠 */
+  /* 모바일 메인 콘텐츠 */
   .main-content {
     padding: 15px 20px 0;
   }
-  /* 메인 컨텐츠 섹션 공통 */
+  /* 모바일 메인 콘텐츠 섹션 공통 */
   .recommend-book, .news, .board, .favorite-site, .twitter {
     border-bottom: 1px solid #aaa;
     margin-bottom: 15px;
     padding-bottom: 15px;
   }
-  /* 메인컨텐츠 제목 글자 크리 */
+  /* 모바일 메인 콘텐츠 제목 글자 크기 */
   .content-heading {
     font-size: 1.6rem;
   }
-  /* 슬로건 */
+  /* 모바일 슬로건 */
   .slogan {
     margin: 15px 0;
   }
@@ -330,7 +437,7 @@ a:hover, a:focus {
     margin: -1px;
     clip: rect(0, 0, 0, 0);
   }
-  .slogan-content p {
+  .slogan-content q {
     font-weight: bold;
   }
   /* 모바일 푸터 */
@@ -338,7 +445,7 @@ a:hover, a:focus {
     padding: 20px;
   }
   address span {
-    display: none;
+    display: block;
   }
   .copyright {
     margin-top: 15px;
@@ -347,7 +454,7 @@ a:hover, a:focus {
 
 /* 데스크 탑 */
 
-@media screen and (min-width:1000px) {
+@media screen and (min-width: 1000px) {
   body {
     font-size: 1.6rem;
   }
@@ -356,20 +463,19 @@ a:hover, a:focus {
     margin: 0 auto;
   }
   /*=============================================
-  =            헤더            =
-  =============================================*/
+    =            헤더             =
+    =============================================*/
   .header {
     position: relative;
     padding-bottom: 15px;
   }
   /*----------  로고  ----------*/
   .logo {
-    /* 로고 영역에 배경색 지정 */
     position: absolute;
     top: 30px;
     left: 30px;
   }
-  /*----------  멤버 링크 ----------*/
+  /*----------  멤버 링크  ----------*/
   .member {
     display: flex;
     justify-content: flex-end;
@@ -381,6 +487,10 @@ a:hover, a:focus {
     display: block;
   }
   /*----------  검색 폼  ----------*/
+  .search-form {
+    text-align: right;
+    margin-top: 15px;
+  }
   .search, .btn-search {
     border: 1px solid #aaa;
     border-radius: 5px;
@@ -388,21 +498,17 @@ a:hover, a:focus {
     height: 30px;
     vertical-align: middle;
   }
-  .search-form {
-    text-align: right;
-    margin-top: 15px
-  }
   .search {
     width: 400px;
   }
   .btn-search {
-    background-color: #988574;
     color: #fff;
+    background-color: #988574;
   }
   /*=====  End of 헤더  ======*/
   /*=============================================
-  =            네비게이션            =
-  =============================================*/
+    =            내비게이션            =
+    =============================================*/
   .menubar-container {
     display: none;
   }
@@ -427,27 +533,27 @@ a:hover, a:focus {
     margin: 15px 0 0 15px;
   }
   .sub-menu li {
-    margin: 2px;
+    margin: 2px 0;
   }
   .sub-menu a {
     display: block;
     padding: 5px 0;
   }
   .sub-menu a:hover, .sub-menu a:focus {
-    color: #523352;
+    color: #523325;
   }
-  /*=====  End of 네비게이션  ======*/
+  /*=====  End of 내비게이션  ======*/
   /* 메인 콘텐츠 */
   .main-content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  /* 메인 컨텐츠 섹션 공통*/
+  /* 메인 콘텐츠 섹션 공통 */
   .recommend-book, .news, .board, .favorite-site, .twitter {
     padding: 20px;
   }
-  /* 메인컨텐츠 제목 글자 크리 */
+  /* 메인 콘텐츠 제목 글자 크기 */
   .content-heading {
     font-size: 1.8rem;
   }
@@ -459,9 +565,15 @@ a:hover, a:focus {
   .news {
     width: 650px;
   }
+  .news-summary {
+    margin-bottom: 0;
+  }
   /* 게시판 */
   .board {
     width: 350px;
+  }
+  .board-more {
+    right: 12px;
   }
   /* 인기 사이트 */
   .favorite-site {
@@ -479,10 +591,10 @@ a:hover, a:focus {
     padding-top: 20px;
   }
   .slogan-heading {
-    position: relative;
     width: 110px;
     height: 83px;
     padding: 20px;
+    position: relative;
     bottom: -25px;
   }
   .slogan-heading::after {
@@ -502,9 +614,9 @@ a:hover, a:focus {
   }
   /* 푸터 */
   .footer {
-    margin-left: 160px;
+    padding-left: 160px;
   }
-  .footer span {
+  address span {
     margin-right: 20px;
   }
 }
